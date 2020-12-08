@@ -29,7 +29,7 @@ var config = {
             alignment: 'left',
             title: 'How are the measures weighted?',
             image: './images/2.png',
-            description: 'Copy these sections to add to your story.',
+            description: '',
             location: {
                 center: [121.46667, 31.16667],
                 zoom: 1,
