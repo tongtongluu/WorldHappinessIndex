@@ -3,17 +3,18 @@ var config = {
     accessToken: 'pk.eyJ1IjoibHVxNzc4IiwiYSI6ImNrMzdsZ3hxaDAwMHEzamxkdTJtcGppc3UifQ.oQP1bg5nLong5oE0dh8GgQ',
     showMarkers: true,
     markerColor: '#BB6BD9',
-    theme: 'light',
+    theme: 'dark',
     mapAnimation: 'flyTo',
     // title: 'The Title Text of this Story',
     // subtitle: 'A descriptive and interesting subtitle to draw in the reader',
     // byline: 'By a Digital Storyteller',
     footer: 'Source: source citations, etc.',
     chapters: [{
+            layerType :'fill',
             id: 'slug-style-id',
-            alignment: 'left',
-            title: 'The World Happiness Report',
-            image: './images/1.jpg',
+            alignment: 'center',
+            //title: 'The World Happiness Report',
+            image: './images/1.png',
             description: 'The World Happiness Report is a landmark survey of the state of global happiness that ranks 156 countries by how happy their citizens perceive themselves to be. The World Happiness Report 2020 for the first time ranks cities around the world by their subjective well-being and digs more deeply into how the social, urban and natural environments combine to affect our happiness.',
             location: {
                 center: [-97.9222112121185, 39.3812661305678],
@@ -22,7 +23,7 @@ var config = {
                 bearing: 0,
                 code: 'USA'
             },
-            hide: false,
+            hide: true,
             onChapterEnter: [],
             onChapterExit: []
         },
@@ -30,7 +31,7 @@ var config = {
             id: '1',
             alignment: 'left',
             title: 'How are the measures weighted?',
-            image: './images/2.png',
+            image: './images/legend.png',
             description: '',
             location: {
                 center: [121.46667, 31.16667],
@@ -39,16 +40,16 @@ var config = {
                 bearing: 0,
                 code: 'CHN'
             },
-            hide: false,
+            hide: true,
             onChapterEnter: [],
             onChapterExit: []
         },
         {
             id: '2',
             alignment: 'left',
-            title: 'Who is the happiest',
+            title: 'Who is the happiest? 🇩🇰',
             image: './images/denmark.jpg',
-            description: 'Over the past 5 years, Denmark was found to be the happiest nation.',
+            description: 'Over the past 5 years, Denmark was found to be the happiest nation.Is it the relative lack of crime and corruption, or just plain Danish hygge? According to the World Happiness Report, happiness is closely linked to social equality and community spirit - and Denmark does well on both. Denmark has a high level of equality and a strong sense of common responsibility for social welfare.',
             location: {
                 center: [10.0462968058278, 55.9633978748347],
                 zoom: 3,
@@ -63,9 +64,9 @@ var config = {
         {
             id: '3',
             alignment: 'left',
-            title: 'Those who are unhappy',
+            title: 'Those who are unhappy 🇨🇫',
             image: './images/cafrican.jpg',
-            description: 'The Central African Republic has the lowest average happiness rank. Has a ongoing civil war, starting in 2012',
+            description: 'The Central African Republic, a landlocked country with a population of close to 4.9 million, embarked on a long recovery process, following a major security crisis in 2013 that unraveled its social fabric and displaced over 25% of its population.Poverty remains high and projections suggest that roughly 71% of the population was living below the international poverty line ($1.90 per day, in terms of PPP) in 2018.',
             location: {
                 center: [20.4828261100212, 6.57134078462119],
                 zoom: 3,
@@ -80,9 +81,9 @@ var config = {
         {
             id: '4',
             alignment: 'left',
-            title: 'Who changed the most',
+            title: 'Who changed the most? 🇻🇪',
             image: './images/venezuela.jpg',
-            description: 'Venezuela dropped from 23rd to 108th over the 5 years. Economic crisis, intensifying in 2015. Dropped in "Social Support" and "GDP Per Capita" ranks by over 20 places',
+            description: 'Venezuela dropped from 23rd to 108th over the 5 years. Economic crisis, intensifying in 2015. Dropped in "Social Support" and "GDP Per Capita" ranks by over 20 places.Amid numerous blackouts, fuel shortages impacting agriculture and food production, and inflation on pace to reach over 10 million percent by the end of 2019, Venezuela’s humanitarian, economic, and political crisis has forced more than 4 million citizens to flee their homeland. That number could surge past 5 million by the end of 2019.',
             location: {
                 center: [-65.801997444749, 7.61957014788959],
                 zoom: 3,
@@ -96,10 +97,10 @@ var config = {
         },
         {
             id: '5',
-            alignment: 'left',
-            title: 'Happiness may related  with GDP, but its not always the case ',
+            alignment: 'center',
+            title: 'Why we are not happy? Becase of money? Maybe yes',
             image: './images/gdp.png',
-            description: 'Three countries and area, Hong Kong, Greece and Croatia, have an above average GDP per capita byt below average happiness score. All South/Latin American countries(except Haiti) have a high happiness score despite most having a below average GDP per capita.',
+            description: 'Areas like Greece, have an above average GDP per capita but below average happiness score. Almost all South/Latin American countries have a high happiness score despite most having a below average GDP per capita.',
             location: {
                 center: [23.8285537394706, 38.5890212896367],
                 zoom: 3,
@@ -107,16 +108,33 @@ var config = {
                 bearing: 0,
                 code: 'GRC'
             },
-            hide: false,
+            hide: true,
             onChapterEnter: [],
             onChapterExit: []
         },
         {
             id: '6',
+            alignment: 'center',
+            title: 'Why we are happy? Wait I didnt say that',
+            image: './images/conversation.png',
+            //description: 'Areas like Greece, have an above average GDP per capita but below average happiness score. Almost all South/Latin American countries have a high happiness score despite most having a below average GDP per capita.',
+            location: {
+                center: [23.8285537394706, 38.5890212896367],
+                zoom: 3,
+                pitch: 60,
+                bearing: 0,
+                code: 'GRC'
+            },
+            hide: true,
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: '7',
             alignment: 'left',
-            title: 'the U.S. is suffering an epidemic of addictions, and that these addictions are leaving a rising portion of American society unhappy and a rising number clinically depressed ',
-            //image: './images/gdp.png',
-            description: 'Jeffrey D. Sachs, situates the decline of American well-being in the context of a mass-addiction society. A variety of interrelated evolutionary, socioeconomic, physiological, and regulatory factors are associated with rising addiction rates across areas including drugs and alcohol, food and obesity, and internet usage. The United States’ historical failure to implement public health policies that emphasize well-being over corporate interests must be addressed to respond to the addiction epidemic. Effective interventions might include a rapid scale-up of publicly financed mental health services and increased regulation of the prescriptive drug industry and other addictive products and activities.',
+            title: 'Looks like Americans currently live in a RICH AND HAPPY country, But would you describe you are happy in general?',
+            image: './images/usdata.png',
+            //description: 'Jeffrey D. Sachs, situates the decline of American well-being in the context of a mass-addiction society. A variety of interrelated evolutionary, socioeconomic, physiological, and regulatory factors are associated with rising addiction rates across areas including drugs and alcohol, food and obesity, and internet usage. The United States’ historical failure to implement public health policies that emphasize well-being over corporate interests must be addressed to respond to the addiction epidemic. Effective interventions might include a rapid scale-up of publicly financed mental health services and increased regulation of the prescriptive drug industry and other addictive products and activities.',
             location: {
                 center: [-97.9222112121185, 39.3812661305678],
                 zoom: 3,
@@ -128,15 +146,50 @@ var config = {
             onChapterEnter: [],
             onChapterExit: []
         },
+
         {
-            id: '7',
-            alignment: 'left',
+            id: '8',
+            alignment: 'center',
+            title: 'the U.S. is suffering an epidemic of addictions, and that these addictions are leaving a rising portion of American society unhappy and a rising number clinically depressed ',
+            //image: './images/gdp.png',
+            description: 'Jeffrey D. Sachs, situates the decline of American well-being in the context of a mass-addiction society. A variety of interrelated evolutionary, socioeconomic, physiological, and regulatory factors are associated with rising addiction rates across areas including drugs and alcohol, food and obesity, and internet usage. The United States’ historical failure to implement public health policies that emphasize well-being over corporate interests must be addressed to respond to the addiction epidemic. Effective interventions might include a rapid scale-up of publicly financed mental health services and increased regulation of the prescriptive drug industry and other addictive products and activities.',
+            location: {
+                center: [-97.9222112121185, 39.3812661305678],
+                zoom: 3,
+                pitch: 60,
+                bearing: 0,
+                code: 'USA'
+            },
+            hide: true,
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: '9',
+            alignment: 'center',
             title: 'Oh hello looking for your phones again? ',
+            description: 'How many times have you been trying to fall asleep when suddenly you hear your phone cut through the silence with a notification? You think to yourself, “No, I’ll just check it in the morning,” but then you start to wonder what it could be. Could it be a monumental sports trade? A confession of love from your crush? ',
             image: './images/phone.png',
-            description: '',
             location: {
                 center: [-73.9808, 40.7648],
                 zoom: 7,
+                pitch: 0,
+                bearing: 0,
+                code: 'USA'
+            },
+            hide: true,
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: '10',
+            alignment: 'center',
+            title: 'No answer to this but still wish yall as happy as you can ',
+            //description: 'How many times have you been trying to fall asleep when suddenly you hear your phone cut through the silence with a notification? You think to yourself, “No, I’ll just check it in the morning,” but then you start to wonder what it could be. Could it be a monumental sports trade? A confession of love from your crush? ',
+            image: './images/happyall.png',
+            location: {
+                center: [-73.9808, 40.7648],
+                zoom: 1,
                 pitch: 0,
                 bearing: 0,
                 code: 'USA'
@@ -193,15 +246,15 @@ function gdpbutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Logged GDP per capita'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(188,109,217,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(215,194,223,1)';
             }
         } else {
             if (row['Logged GDP per capita'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
@@ -260,15 +313,15 @@ function socialbutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Social support'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(255,156,56,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(255,219,183,1)';
             }
         } else {
             if (row['Social support'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
@@ -327,15 +380,15 @@ function lifebutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Healthy life expectancy'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(102,208,146,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(181,236,204,1)';
             }
         } else {
             if (row['Healthy life expectancy'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
@@ -394,15 +447,15 @@ function freedombutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Freedom to make life choices'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(187,25,187,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(255,168,255,1)';
             }
         } else {
             if (row['Freedom to make life choices'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
@@ -461,15 +514,15 @@ function generositybutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Generosity'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(209,59,64,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(220,164,167,1)';
             }
         } else {
             if (row['Generosity'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
@@ -528,15 +581,15 @@ function corruptionbutton() {
         let color;
         if (row['Ladder score'] > med1) {
             if (row['Perceptions of corruption'] > med2) {
-                color = 'rgba(176,118,255,1)';
+                color = 'rgba(10,90,242,1)';
             } else {
-                color = 'rgba(176,118,255,0.2)';
+                color = 'rgba(136,177,255,1)';
             }
         } else {
             if (row['Perceptions of corruption'] > med2) {
                 color = 'rgba(255,255,255,1)';
             } else {
-                color = 'rgba(255,255,255,0.2)';
+                color = 'rgba(177,177,177,1)';
             }
         }
         matchExpression.push(row['A3 Code'], color);
