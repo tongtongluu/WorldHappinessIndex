@@ -275,3 +275,9 @@ a:visited {
    font-family: 'Montserrat', sans-serif;
    font-size: 36px
 }
+#footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-align:left;
+    margin-left: 10px
+ }
