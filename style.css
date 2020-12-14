@@ -281,3 +281,27 @@ a:visited {
     text-align:left;
     margin-left: 10px
  }
+ #gdpbutton{
+     background-color: #B076FF;
+     color:#ffffff
+ }
+ #socialbutton{
+    background-color: #FF9C38;
+    color:#ffffff
+}
+#lifebutton{
+    background-color: #66D092;
+    color:#ffffff
+}
+#freedombutton{
+    background-color: #FFA8FF;
+    color:#ffffff
+}
+#generositybutton{
+    background-color: #66D092;
+    color: #ffffff;
+}
+#corruptionbutton{
+    background-color: #88B1FF;
+    color:#ffffff
+}
