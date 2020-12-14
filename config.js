@@ -40,7 +40,7 @@ var config = {
                 bearing: 0,
                 code: 'CHN'
             },
-            hide: true,
+            hide: false,
             onChapterEnter: [],
             onChapterExit: []
         },

@@ -161,12 +161,14 @@ a:visited {
 }
 
 #legend {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 500px;
     position: fixed;
     margin-left: 80vw;
-    margin-top: 75vh;
-    z-index: -4;
+    margin-top: 2vh;
+    z-index: 0;
+    background-color:#000000
+    
 }
 
 #title {
