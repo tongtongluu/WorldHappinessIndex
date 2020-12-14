@@ -11,14 +11,23 @@
     <script src="https://unpkg.com/scrollama"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        
+
     </style>
 </head>
 
 <body>
+    <div id="filter">
+        <p>Story | <a href="dashboard.html">Dashboard</a></p>
+    </div>
+    <div id="legend">
 
+    </div>
+
+    <div id="blackout"></div>
     <div id="map"></div>
     <div id="story"></div>
+
+
     <script src="./config.js"></script>
     <script>
         var layerTypes = {
@@ -162,460 +171,10 @@
             var marker = new mapboxgl.Marker({
                 color: config.markerColor
             });
-            marker.setLngLat(config.chapters[0].location.center).addTo(map);
         }
 
         // instantiate the scrollama
         var scroller = scrollama();
-
-        var data = [{
-            "A3 Code": "FIN",
-            "Ladder score": 7.808700085
-        }, {
-            "A3 Code": "DNK",
-            "Ladder score": 7.645599842
-        }, {
-            "A3 Code": "CHE",
-            "Ladder score": 7.559899807
-        }, {
-            "A3 Code": "ISL",
-            "Ladder score": 7.504499912
-        }, {
-            "A3 Code": "NOR",
-            "Ladder score": 7.487999916
-        }, {
-            "A3 Code": "NLD",
-            "Ladder score": 7.448900223
-        }, {
-            "A3 Code": "SWE",
-            "Ladder score": 7.353499889
-        }, {
-            "A3 Code": "NZL",
-            "Ladder score": 7.299600124
-        }, {
-            "A3 Code": "AUT",
-            "Ladder score": 7.294199944
-        }, {
-            "A3 Code": "LUX",
-            "Ladder score": 7.237500191
-        }, {
-            "A3 Code": "CAN",
-            "Ladder score": 7.23210001
-        }, {
-            "A3 Code": "AUS",
-            "Ladder score": 7.222799778
-        }, {
-            "A3 Code": "GBR",
-            "Ladder score": 7.164500237
-        }, {
-            "A3 Code": "ISR",
-            "Ladder score": 7.128600121
-        }, {
-            "A3 Code": "CRI",
-            "Ladder score": 7.121399879
-        }, {
-            "A3 Code": "IRL",
-            "Ladder score": 7.093699932
-        }, {
-            "A3 Code": "DEU",
-            "Ladder score": 7.075799942
-        }, {
-            "A3 Code": "USA",
-            "Ladder score": 6.939599991
-        }, {
-            "A3 Code": "CZE",
-            "Ladder score": 6.910900116
-        }, {
-            "A3 Code": "BEL",
-            "Ladder score": 6.863500118
-        }, {
-            "A3 Code": "ARE",
-            "Ladder score": 6.790800095
-        }, {
-            "A3 Code": "MLT",
-            "Ladder score": 6.772799969
-        }, {
-            "A3 Code": "FRA",
-            "Ladder score": 6.663799763
-        }, {
-            "A3 Code": "MEX",
-            "Ladder score": 6.465000153
-        }, {
-            "A3 Code": "TWN",
-            "Ladder score": 6.45539999
-        }, {
-            "A3 Code": "URY",
-            "Ladder score": 6.440100193
-        }, {
-            "A3 Code": "SAU",
-            "Ladder score": 6.406499863
-        }, {
-            "A3 Code": "ESP",
-            "Ladder score": 6.400899887
-        }, {
-            "A3 Code": "GTM",
-            "Ladder score": 6.398900032
-        }, {
-            "A3 Code": "ITA",
-            "Ladder score": 6.38740015
-        }, {
-            "A3 Code": "SGP",
-            "Ladder score": 6.377099991
-        }, {
-            "A3 Code": "BRA",
-            "Ladder score": 6.375599861
-        }, {
-            "A3 Code": "SVN",
-            "Ladder score": 6.363399982
-        }, {
-            "A3 Code": "SLV",
-            "Ladder score": 6.34829998
-        }, {
-            "A3 Code": "PAN",
-            "Ladder score": 6.304800034
-        }, {
-            "A3 Code": "SVK",
-            "Ladder score": 6.280600071
-        }, {
-            "A3 Code": "UZB",
-            "Ladder score": 6.257599831
-        }, {
-            "A3 Code": "CHL",
-            "Ladder score": 6.228499889
-        }, {
-            "A3 Code": "BHR",
-            "Ladder score": 6.227300167
-        }, {
-            "A3 Code": "LTU",
-            "Ladder score": 6.215499878
-        }, {
-            "A3 Code": "TTO",
-            "Ladder score": 6.191899776
-        }, {
-            "A3 Code": "POL",
-            "Ladder score": 6.186299801
-        }, {
-            "A3 Code": "COL",
-            "Ladder score": 6.163400173
-        }, {
-            "A3 Code": "CYP",
-            "Ladder score": 6.15899992
-        }, {
-            "A3 Code": "NIC",
-            "Ladder score": 6.13710022
-        }, {
-            "A3 Code": "ROU",
-            "Ladder score": 6.123700142
-        }, {
-            "A3 Code": "KWT",
-            "Ladder score": 6.102099895
-        }, {
-            "A3 Code": "MUS",
-            "Ladder score": 6.101299763
-        }, {
-            "A3 Code": "KAZ",
-            "Ladder score": 6.057899952
-        }, {
-            "A3 Code": "EST",
-            "Ladder score": 6.021800041
-        }, {
-            "A3 Code": "PHL",
-            "Ladder score": 6.006000042
-        }, {
-            "A3 Code": "HUN",
-            "Ladder score": 6.000400066
-        }, {
-            "A3 Code": "THA",
-            "Ladder score": 5.998799801
-        }, {
-            "A3 Code": "ARG",
-            "Ladder score": 5.974699974
-        }, {
-            "A3 Code": "HND",
-            "Ladder score": 5.953199863
-        }, {
-            "A3 Code": "LVA",
-            "Ladder score": 5.949999809
-        }, {
-            "A3 Code": "ECU",
-            "Ladder score": 5.925199986
-        }, {
-            "A3 Code": "PRT",
-            "Ladder score": 5.910900116
-        }, {
-            "A3 Code": "JAM",
-            "Ladder score": 5.889800072
-        }, {
-            "A3 Code": "KOR",
-            "Ladder score": 5.872399807
-        }, {
-            "A3 Code": "JPN",
-            "Ladder score": 5.870800018
-        }, {
-            "A3 Code": "PER",
-            "Ladder score": 5.796800137
-        }, {
-            "A3 Code": "SRB",
-            "Ladder score": 5.77820015
-        }, {
-            "A3 Code": "BOL",
-            "Ladder score": 5.747499943
-        }, {
-            "A3 Code": "PAK",
-            "Ladder score": 5.69329977
-        }, {
-            "A3 Code": "PRY",
-            "Ladder score": 5.692100048
-        }, {
-            "A3 Code": "DOM",
-            "Ladder score": 5.689199924
-        }, {
-            "A3 Code": "BIH",
-            "Ladder score": 5.674099922
-        }, {
-            "A3 Code": "MDA",
-            "Ladder score": 5.607500076
-        }, {
-            "A3 Code": "TJK",
-            "Ladder score": 5.555699825
-        }, {
-            "A3 Code": "MNE",
-            "Ladder score": 5.54610014
-        }, {
-            "A3 Code": "RUS",
-            "Ladder score": 5.546000004
-        }, {
-            "A3 Code": "KGZ",
-            "Ladder score": 5.541500092
-        }, {
-            "A3 Code": "BLR",
-            "Ladder score": 5.539899826
-        }, {
-            "A3 Code": "GRC",
-            "Ladder score": 5.514999866
-        }, {
-            "A3 Code": "HKG",
-            "Ladder score": 5.510399818
-        }, {
-            "A3 Code": "HRV",
-            "Ladder score": 5.504700184
-        }, {
-            "A3 Code": "LBY",
-            "Ladder score": 5.488800049
-        }, {
-            "A3 Code": "MNG",
-            "Ladder score": 5.456200123
-        }, {
-            "A3 Code": "MYS",
-            "Ladder score": 5.384300232
-        }, {
-            "A3 Code": "VNM",
-            "Ladder score": 5.353499889
-        }, {
-            "A3 Code": "IDN",
-            "Ladder score": 5.285600185
-        }, {
-            "A3 Code": "BEN",
-            "Ladder score": 5.21600008
-        }, {
-            "A3 Code": "MDV",
-            "Ladder score": 5.197599888
-        }, {
-            "A3 Code": "COD",
-            "Ladder score": 5.194399834
-        }, {
-            "A3 Code": "AZE",
-            "Ladder score": 5.164800167
-        }, {
-            "A3 Code": "MKD",
-            "Ladder score": 5.159800053
-        }, {
-            "A3 Code": "GHA",
-            "Ladder score": 5.147999763
-        }, {
-            "A3 Code": "NPL",
-            "Ladder score": 5.137199879
-        }, {
-            "A3 Code": "TUR",
-            "Ladder score": 5.131800175
-        }, {
-            "A3 Code": "CHN",
-            "Ladder score": 5.123899937
-        }, {
-            "A3 Code": "TKM",
-            "Ladder score": 5.119100094
-        }, {
-            "A3 Code": "BGR",
-            "Ladder score": 5.101500034
-        }, {
-            "A3 Code": "MAR",
-            "Ladder score": 5.094799995
-        }, {
-            "A3 Code": "CMR",
-            "Ladder score": 5.084899902
-        }, {
-            "A3 Code": "VEN",
-            "Ladder score": 5.053199768
-        }, {
-            "A3 Code": "DZA",
-            "Ladder score": 5.005099773
-        }, {
-            "A3 Code": "SEN",
-            "Ladder score": 4.980800152
-        }, {
-            "A3 Code": "GIN",
-            "Ladder score": 4.949299812
-        }, {
-            "A3 Code": "NER",
-            "Ladder score": 4.909599781
-        }, {
-            "A3 Code": "ALB",
-            "Ladder score": 4.882699966
-        }, {
-            "A3 Code": "KHM",
-            "Ladder score": 4.848400116
-        }, {
-            "A3 Code": "BGD",
-            "Ladder score": 4.832799911
-        }, {
-            "A3 Code": "GAB",
-            "Ladder score": 4.829299927
-        }, {
-            "A3 Code": "ZAF",
-            "Ladder score": 4.814099789
-        }, {
-            "A3 Code": "IRQ",
-            "Ladder score": 4.784800053
-        }, {
-            "A3 Code": "LBN",
-            "Ladder score": 4.771500111
-        }, {
-            "A3 Code": "BFA",
-            "Ladder score": 4.768700123
-        }, {
-            "A3 Code": "GMB",
-            "Ladder score": 4.750599861
-        }, {
-            "A3 Code": "MLI",
-            "Ladder score": 4.729300022
-        }, {
-            "A3 Code": "NGA",
-            "Ladder score": 4.724100113
-        }, {
-            "A3 Code": "ARM",
-            "Ladder score": 4.676799774
-        }, {
-            "A3 Code": "GEO",
-            "Ladder score": 4.672599792
-        }, {
-            "A3 Code": "IRN",
-            "Ladder score": 4.672399998
-        }, {
-            "A3 Code": "JOR",
-            "Ladder score": 4.633399963
-        }, {
-            "A3 Code": "MOZ",
-            "Ladder score": 4.623600006
-        }, {
-            "A3 Code": "KEN",
-            "Ladder score": 4.583000183
-        }, {
-            "A3 Code": "NAM",
-            "Ladder score": 4.571100235
-        }, {
-            "A3 Code": "UKR",
-            "Ladder score": 4.56069994
-        }, {
-            "A3 Code": "LBR",
-            "Ladder score": 4.557899952
-        }, {
-            "A3 Code": "PSE",
-            "Ladder score": 4.552800179
-        }, {
-            "A3 Code": "UGA",
-            "Ladder score": 4.43200016
-        }, {
-            "A3 Code": "TCD",
-            "Ladder score": 4.422699928
-        }, {
-            "A3 Code": "TUN",
-            "Ladder score": 4.392199993
-        }, {
-            "A3 Code": "MRT",
-            "Ladder score": 4.374599934
-        }, {
-            "A3 Code": "LKA",
-            "Ladder score": 4.327000141
-        }, {
-            "A3 Code": "COG",
-            "Ladder score": 4.31099987
-        }, {
-            "A3 Code": "SWZ",
-            "Ladder score": 4.308100224
-        }, {
-            "A3 Code": "MMR",
-            "Ladder score": 4.308000088
-        }, {
-            "A3 Code": "COM",
-            "Ladder score": 4.288599968
-        }, {
-            "A3 Code": "TGO",
-            "Ladder score": 4.187200069
-        }, {
-            "A3 Code": "ETH",
-            "Ladder score": 4.186200142
-        }, {
-            "A3 Code": "MDG",
-            "Ladder score": 4.165599823
-        }, {
-            "A3 Code": "EGY",
-            "Ladder score": 4.151400089
-        }, {
-            "A3 Code": "SLE",
-            "Ladder score": 3.926399946
-        }, {
-            "A3 Code": "BDI",
-            "Ladder score": 3.775300026
-        }, {
-            "A3 Code": "ZMB",
-            "Ladder score": 3.759399891
-        }, {
-            "A3 Code": "HTI",
-            "Ladder score": 3.720799923
-        }, {
-            "A3 Code": "LSO",
-            "Ladder score": 3.652800083
-        }, {
-            "A3 Code": "IND",
-            "Ladder score": 3.573299885
-        }, {
-            "A3 Code": "MWI",
-            "Ladder score": 3.538000107
-        }, {
-            "A3 Code": "YEM",
-            "Ladder score": 3.527400017
-        }, {
-            "A3 Code": "BWA",
-            "Ladder score": 3.478899956
-        }, {
-            "A3 Code": "TZA",
-            "Ladder score": 3.476200104
-        }, {
-            "A3 Code": "CAF",
-            "Ladder score": 3.475899935
-        }, {
-            "A3 Code": "RWA",
-            "Ladder score": 3.312299967
-        }, {
-            "A3 Code": "ZWE",
-            "Ladder score": 3.299200058
-        }, {
-            "A3 Code": "SSD",
-            "Ladder score": 2.816600084
-        }, {
-            "A3 Code": "AFG",
-            "Ladder score": 2.566900015
-        }]
 
         map.on("load", function() {
             // setup the instance, pass callback functions
@@ -627,13 +186,21 @@
                 })
                 .onStepEnter(response => {
                     var chapter = config.chapters.find(chap => chap.id === response.element.id);
+                    var layer = document.getElementById('layer');
                     response.element.classList.add('active');
                     map[config.mapAnimation || 'flyTo'](chapter.location);
                     if (config.showMarkers) {
-                        marker.setLngLat(chapter.location.center);
+                        map.setPaintProperty('countries-join', 'fill-outline-color', ['match', ['get', 'iso_3166_1_alpha_3'], chapter.location.code, 'rgba(255,0,0,1)', 'rgba(0, 0, 0, 0)'])
                     }
                     if (chapter.onChapterEnter.length > 0) {
                         chapter.onChapterEnter.forEach(setLayerOpacity);
+                    }
+                    console.log(chapter);
+                    console.log(chapter.hide);
+                    if (chapter.hide) {
+                        document.getElementById('blackout').style.zIndex = -3;
+                    } else {
+                        document.getElementById('blackout').style.zIndex = -6;
                     }
                 })
                 .onStepExit(response => {
@@ -657,11 +224,22 @@
 
             // Calculate color values for each country based on 'hdi' value
             data.forEach(function(row) {
-
                 // Convert the range of data values to a suitable color
-                var grad = row['Ladder score'] * 36;
-                var color = 'rgba(153, 0, ' + grad + ',0.2)';
-
+                let color;
+                if (row['Ladder score'] > 5.515) {
+                    if (row['Logged GDP per capita'] > 9.500) {
+                        color = 'rgba(188,109,217,1)';
+                    } else {
+                        color = 'rgba(215,194,223,1)';
+                    }
+                } else {
+                    console.log(row["Logged GDP per capita"])
+                    if (row['Logged GDP per capita'] > 9.500) {
+                        color = 'rgba(255,255,255,1)';
+                    } else {
+                        color = 'rgba(177,177,177,1)';
+                    }
+                }
                 matchExpression.push(row['A3 Code'], color);
 
             });

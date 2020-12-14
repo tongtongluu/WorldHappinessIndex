@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>World Happiness Index</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="./config.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="title">
+        Title goes here
+    </div>
+    <div id="footer">
+        Footer goes here
+    </div>
+    <div id="filter">
+        <p><a href="index.html">Story</a> | Dashboard</p>
+    </div>
+    <div id="map2"></div>
+    <div id="controls">
+        <p>Dataset</p>
+        <button onclick="gdpbutton()" id="gdpbutton" class="categorybutton">GDP</button>
+        <button onclick="socialbutton()" id="socialbutton" class="categorybutton">Social Support</button>
+        <button onclick="lifebutton()" id="lifebutton" class="categorybutton">Life Expectancy</button>
+        <button onclick="freedombutton()" id="freedombutton" class="categorybutton">Freedom</button>
+        <button onclick="generositybutton()" id="generositybutton" class="categorybutton">Generosity</button>
+        <button onclick="corruptionbutton()" id="corruptionbutton" class="categorybutton">Corruption</button>
+        <p>Year</p>
+        <button onclick="buttonyear(2020)" id="2020button" class="categorybutton">2020</button>
+        <button onclick="buttonyear(2019)" id="2019button" class="categorybutton">2019</button>
+        <button onclick="buttonyear(2018)" id="2018button" class="categorybutton">2018</button>
+        <button onclick="buttonyear(2017)" id="2017button" class="categorybutton">2017</button>
+        <button onclick="buttonyear(2016)" id="2016button" class="categorybutton">2016</button>
+        <button onclick="buttonyear(2015)" id="2015button" class="categorybutton">2015</button>
+    </div>
+    <script>
+        var layerTypes = {
+            'fill': ['fill-opacity'],
+            'line': ['line-opacity'],
+            'circle': ['circle-opacity', 'circle-stroke-opacity'],
+            'symbol': ['icon-opacity', 'text-opacity'],
+            'raster': ['raster-opacity'],
+            'fill-extrusion': ['fill-extrusion-opacity']
+        }
+
+        var alignments = {
+            'left': 'lefty',
+            'center': 'centered',
+            'right': 'righty',
+            'full': 'fully'
+        }
+
+        function getLayerPaintType(layer) {
+            var layerType = map.getLayer(layer).type;
+            return layerTypes[layerType];
+        }
+
+        function setLayerOpacity(layer) {
+            var paintProps = getLayerPaintType(layer.layer);
+            paintProps.forEach(function(prop) {
+                var options = {};
+                if (layer.duration) {
+                    var transitionProp = prop + "-transition";
+                    options = {
+                        "duration": layer.duration
+                    };
+                    map.setPaintProperty(layer.layer, transitionProp, options);
+                }
+                map.setPaintProperty(layer.layer, prop, layer.opacity, options);
+            });
+        }
+        var features = document.createElement('div');
+        features.setAttribute('id', 'features');
+
+        var footer = document.createElement('div');
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibHVxNzc4IiwiYSI6ImNrMzdsZ3hxaDAwMHEzamxkdTJtcGppc3UifQ.oQP1bg5nLong5oE0dh8GgQ';
+
+        var map2 = new mapboxgl.Map({
+            container: 'map2',
+            style: 'mapbox://styles/luq778/ckie0vrzp2y7519t093ruv03h',
+            center: [-17.034084142948, 38.909671288923],
+            zoom: 1.5,
+            scrollZoom: true
+        });
+
+        map2.on("load", function() {
+            // Add source for country polygons using the Mapbox Countries tileset
+            // The polygons contain an ISO 3166 alpha-3 code which can be used to for joining the data
+            // https://docs.mapbox.com/vector-tiles/reference/mapbox-countries-v1
+            map2.addSource('countries', {
+                type: 'vector',
+                url: 'mapbox://mapbox.country-boundaries-v1'
+            });
+
+            // Build a GL match expression that defines the color for every vector tile feature
+            // Use the ISO 3166-1 alpha 3 code as the lookup key for the country shape
+            var matchExpression = ['match', ['get', 'iso_3166_1_alpha_3']];
+
+            // Calculate color values for each country based on'hdi' value
+            data.forEach(function(row) {
+                // Convert the range of data values to a suitable color
+                let color;
+                if (row['Ladder score'] > 5.515) {
+                    if (row['Logged GDP per capita'] > 9.500) {
+                        color = 'rgba(176,118,255,1)';
+                    } else {
+                        color = 'rgba(176,118,255,0.2)';
+                    }
+                } else {
+                    console.log(row["Logged GDP per capita"])
+                    if (row['Logged GDP per capita'] > 9.500) {
+                        color = 'rgba(255,255,255,1)';
+                    } else {
+                        color = 'rgba(255,255,255,0.2)';
+                    }
+                }
+                matchExpression.push(row['A3 Code'], color);
+
+            });
+
+            // Last value is the default, used where there is no data
+            matchExpression.push('rgba(0, 0, 0, 0)');
+
+            // Add layer from the vector tile source to create the choropleth
+            // Insert it below the'admin-1-boundary-bg' layer in the style
+            map2.addLayer({
+                'id': 'countries-join',
+                'type': 'fill',
+                'source': 'countries',
+                'source-layer': 'country_boundaries',
+                'paint': {
+                    'fill-color': matchExpression
+                }
+            }, 'admin-1-boundary-bg');
+        });
+    </script>
+
+</body>
+
+</html>
